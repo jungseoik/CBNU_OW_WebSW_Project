@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ChatGPT API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        /* page-loading */
+        #loading {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            display: block;
+            opacity: 0.6;
+            background: #e4e4e4;
+            z-index: 99;
+            text-align: center;
+        }
+
+        #loading>img {
+            position: absolute;
+            top: 40%;
+            left: 45%;
+            z-index: 100;
+        }
+
+        #loading>p {
+            position: absolute;
+            top: 57%;
+            left: 43%;
+            z-index: 101;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1 class="mt-5">무엇이든 물어보세요!</h1>
+
+    <div id="chatbox" class="mt-3 p-3 border">
+        <!-- Chat messages will be inserted here -->
+    </div>
+
+    <div class="input-group mt-3">
+        <input type="text" id="keywords" name="keywords" required class="form-control" placeholder="이곳에 질문을 입력하세요">
+        <button class="btn btn-primary" onclick="chatGPT()">입력</button>
+    </div>
+</div>
+
+<div id="loading">
+    <img src="https://studentrights.sen.go.kr/images/common/loading.gif">
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#loading').hide();
+    });
+    var messages = []
+    function chatGPT() {
+        const api_key = "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"  // <- API KEY 입력
+        const keywords = document.getElementById('keywords').value
+        $('#loading').show();
+
+        messages.push({ role: 'user', content: keywords })
+
+        const data = {
+            model: 'gpt-3.5-turbo',
+            temperature: 0.5,
+            n: 1,
+            messages: messages,
+        }
+
+        $.ajax({
+            url: "https://api.openai.com/v1/chat/completions",
+            method: 'POST',
+            headers: {
+                Authorization: "Bearer " + api_key,
+                'Content-Type': 'application/json',
+            },
+            data: JSON.stringify(data),
+        }).then(function (response) {
+            $('#loading').hide();
+
+            let chatbox = document.getElementById('chatbox')
+
+            let userDiv = document.createElement('div')
+            userDiv.className = "p-2 mb-2 bg-primary text-white rounded"
+            userDiv.innerHTML = "User: " + keywords
+            chatbox.appendChild(userDiv)
+
+            let gptDiv = document.createElement('div')
+            gptDiv.className = "p-2 mb-2 bg-secondary text-white rounded"
+            gptDiv.innerHTML = "ChatGPT: " + response.choices[0].message.content
+            messages.push({ role: 'system', content: response.choices[0].message.content })
+            chatbox.appendChild(gptDiv)
+
+            document.getElementById('keywords').value = ''
+        });
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>공 피하기 게임</title>
+  <style>
+    #canvas { /* canvas 스타일을 정의 */
+      border: 1px solid black;
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1000" height="500"></canvas>
+
+  <script>
+     // 캔버스와 그리기 컨텍스트를 가져온다
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+     // 플레이어 객체를 정의
+    var player = {
+      x: canvas.width / 2,   // 플레이어의 x 좌표 위치. 초기값은 캔버스의 가운데로 설정
+      y: canvas.height - 30, // 플레이어의 y 좌표 위치. 초기값은 캔버스 하단에서 30px 위로 설정
+      radius: 10,            // 플레이어의 반지름 크기
+      speed: 3,              // 플레이어의 이동 속도
+      dx: 0,                 // 플레이어의 x 방향 이동량입니다. 초기값은 0으로 설정
+      dy: 0                  // 플레이어의 y 방향 이동량입니다. 초기값은 0으로 설정
+    };
+
+    var balls = [
+      { x: 700, y: 100, radius: 10, dx: 2, dy: -2 },
+      { x: 800, y: 200, radius: 10, dx: -2, dy: 2 },
+      { x: 900, y: 350, radius: 10, dx: -2, dy: -2 },
+      { x: 515, y: 350, radius: 10, dx: -2, dy: 2 },
+      { x: 620, y: 300, radius: 10, dx: -2, dy: -2 },
+      { x: 350, y: 320, radius: 10, dx: -2, dy: 2 },
+      { x: 730, y: 400, radius: 10, dx: -2, dy: -2 },
+      { x: 360, y: 200, radius: 10, dx: -2, dy: -2 },
+      { x: 150, y: 260, radius: 10, dx: 2, dy: 2 },
+      { x: 950, y: 280, radius: 10, dx: 2, dy: -2 },
+      { x: 430, y: 300, radius: 10, dx: 2, dy: -2 }
+    ];
+
+    var gameOver = false;     // 게임 오버 여부를 나타내는 변수
+    var startTime = null;     // 게임 시작 시간을 저장하는 변수
+    var elapsedTime = 0;      // 경과 시간(초)을 저장하는 변수
+    var intervalId = null;    // 게임 업데이트를 위한 인터벌 ID
+
+    function drawPlayer() {
+  // 플레이어를 그리는 함수
+  ctx.beginPath(); // 새로운 경로를 시작
+  ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2); // 원을 그림
+  ctx.fillStyle = "#FF0000"; // 플레이어의 색상을 설정
+  ctx.fill(); // 원을 채움
+  ctx.closePath(); // 경로를 닫음
+}
+
+function drawBall(ball) {
+  // 공을 그리는 함수
+  ctx.beginPath(); // 새로운 경로를 시작
+  ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2); // 원을 그림
+  ctx.fillStyle = "#0095DD"; // 공의 색상을 설정
+  ctx.fill(); // 원을 채움
+  ctx.closePath(); // 경로를 닫음
+}
+
+function drawGameOver() {
+  // 게임 오버 메시지를 그리는 함수
+  ctx.font = "24px Arial"; // 폰트 설정
+  ctx.fillStyle = "#000000"; // 색상 설정
+  ctx.fillText("Game Over", canvas.width / 2 - 60, canvas.height / 2); // 게임 오버 메시지를 그린다
+}
+
+function detectCollision(ball) {
+  // 충돌 감지 함수
+  var dx = player.x - ball.x; // 플레이어와 공의 x축 거리 계산
+  var dy = player.y - ball.y; // 플레이어와 공의 y축 거리 계산
+  var distance = Math.sqrt(dx * dx + dy * dy); // 두 점 사이의 거리 계산
+
+  if (distance < player.radius + ball.radius) {
+    // 플레이어와 공의 반지름 합보다 거리가 작을 경우 충돌
+    gameOver = true; // 게임 오버 상태로 설정
+    clearInterval(intervalId); // 게임이 오버되면 인터벌을 중지시킴
+  }
+}
+
+function update() { //update() 함수는 게임 상태를 업데이트하는 함수
+  if (startTime === null) {
+    // 시작 시간이 설정되지 않았을 경우
+    startTime = Date.now(); // 현재 시간을 시작 시간으로 설정
+  } else {
+    elapsedTime = Math.floor((Date.now() - startTime) / 1000); // 경과 시간(초) 계산
+  }
+
+  if (!gameOver) {
+    // 게임 오버 상태가 아닐 경우에만 업데이트 수행
+
+    // 플레이어의 위치 업데이트
+    player.x += player.dx;
+    player.y += player.dy;
+
+    // 플레이어가 화면 경계를 벗어나지 않도록 처리
+    if (player.x + player.dx > canvas.width - player.radius) {
+      player.x = canvas.width - player.radius;
+    } else if (player.x + player.dx < player.radius) {
+      player.x = player.radius;
+    }
+    if (player.y + player.dy > canvas.height - player.radius) {
+      player.y = canvas.height - player.radius;
+    } else if (player.y + player.dy < player.radius) {
+      player.y = player.radius;
+    }
+
+    // 공들의 위치 업데이트 및 경계 체크
+    for (var i = 0; i < balls.length; i++) {
+      var ball = balls[i];
+
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      // 공이 화면 경계를 벗어나면 방향을 반대로 변경
+      if (ball.x + ball.dx > canvas.width - ball.radius || ball.x + ball.dx < ball.radius) {
+        ball.dx = -ball.dx;
+      }
+      if (ball.y + ball.dy > canvas.height - ball.radius || ball.y + ball.dy < ball.radius) {
+        ball.dy = -ball.dy;
+      }
+
+      detectCollision(ball); // 플레이어와 공의 충돌 감지
+    }
+  }
+}
+
+
+function draw() { //draw() 함수는 캔버스를 초기화하고 플레이어와 공들을 그리는 역할을 한다
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // 캔버스를 초기화하고 이전 프레임을 지운다
+
+  if (!gameOver) {
+    drawPlayer(); // 플레이어를 그린다
+
+    for (var i = 0; i < balls.length; i++) {
+      drawBall(balls[i]); // 공들을 그린다
+    }
+  } else {
+    drawGameOver(); // 게임 오버 상태일 경우 "Game Over"를 그린다
+  }
+
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#000000";
+  ctx.fillText("Time: " + elapsedTime + " seconds", 10, 20); // 경과 시간을 텍스트로 그린다
+}
+
+function handleKeyDown(event) {//handleKeyDown(event) 함수는 키보드의 키 다운 이벤트를 처리
+  if (event.key === "ArrowLeft") {
+    player.dx = -player.speed; // 왼쪽 화살표 키를 누르면 플레이어의 x 속도를 왼쪽 방향으로 설정
+  } else if (event.key === "ArrowRight") {
+    player.dx = player.speed; // 오른쪽 화살표 키를 누르면 플레이어의 x 속도를 오른쪽 방향으로 설정
+  } else if (event.key === "ArrowUp") {
+    player.dy = -player.speed; // 위쪽 화살표 키를 누르면 플레이어의 y 속도를 위쪽 방향으로 설정
+  } else if (event.key === "ArrowDown") {
+    player.dy = player.speed; // 아래쪽 화살표 키를 누르면 플레이어의 y 속도를 아래쪽 방향으로 설정
+  }
+}
+
+
+function handleKeyUp(event) {
+  // 화살표 키를 떼었을 때 처리하는 함수
+  if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    player.dx = 0; // 좌우 화살표 키를 떼었을 때 플레이어의 x 속도를 0으로 설정하여 멈추게 한다
+  } else if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+    player.dy = 0; // 상하 화살표 키를 떼었을 때 플레이어의 y 속도를 0으로 설정하여 멈추게 한다
+  }
+}
+
+document.addEventListener('keydown', handleKeyDown); // 키 다운 이벤트를 처리하기 위해 keydown 이벤트 리스너를 등록한다
+document.addEventListener('keyup', handleKeyUp); // 키 업 이벤트를 처리하기 위해 keyup 이벤트 리스너를 등록한다
+
+intervalId = setInterval(function() {
+  //setInterval 함수를 사용하여 update()와 draw() 함수를 일정 간격으로 반복 호출하는 인터벌을 설정한다. 
+  //인터벌은 10밀리초마다 update()와 draw() 함수가 호출되며, 이를 통해 게임 상태가 업데이트되고 화면을 그린다.
+  update();
+  draw();
+}, 10);
+
+  </script>
+</body>
+</html>

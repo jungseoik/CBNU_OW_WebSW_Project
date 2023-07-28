@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script>
+        function checkDate() {
+            var s = document.getElementById("pdate").value;
+            var pdate = new Date(s);
+            var today = new Date();
+            var diff = today.getTime() - pdate.getTime();
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+            if (days > 30) {
+                alert("the exchange date has passed.");
+            }
+        }
+    </script>
+<body>
+    <script>
+        function Car(model, speed, color)
+        {
+            this.model=model;
+            this.speed=speed;
+            this.color = color;
+            this.brake = function () {
+                this.speed -= 10;
+            }
+            this.accel = function () {
+                this.speed += 10;
+            }
+        }
+        myCar = new Car("520d", 60, "red");
+        document.write("model:" + myCar.model + " speed:" + myCar.speed + "<br />");
+        myCar.accel();
+        document.write("model:" + myCar.model + " speed:" + myCar.speed + "<br />");
+        myCar.brake();
+        document.write("model:" + myCar.model + " speed:" + myCar.speed + "<br />");
+    </script>
+    <br>
+    <hr>
+    <br>
+    <script>
+        var today = new Date();
+        document.write(today.toDateString() + "<br>");
+        document.write(today.toISOString() + "<br>");
+        document.write(today.toJSON() + "<br>");
+        document.write(today.toLocaleDateString() + "<br>");
+        document.write(today.toLocaleTimeString() + "<br>");
+        document.write(today.toLocaleString() + "<br>");
+        document.write(today.toString() + "<br>");
+        document.write(today.toTimeString() + "<br>");
+        document.write(today.toUTCString() + "<br>");
+    </script>
+    <br>
+       <hr>
+       <br>
+        Purchase date:
+        <input type="date" id="pdate">
+        <button onclick="checkDate()">search</button>
+        <hr>
+        <div id='clock'></div>
+        <script>
+            function setClock() {
+                var now = new Date();
+                var s = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+                document.getElementById('clock').innerHTML = s;
+                setTimeout('setClock()', 1000);
+        
+            }
+            setClock();
+        </script>
+        <br>
+<hr>
+<br>
+<div id='remaining'></div>
+<script>
+    function datesUntilNewYear() {
+        var now = new Date();
+        var newYear = new Date('January 1, ' + (now.getFullYear() + 1));
+        var diff = newYear - now;
+        var milliseconds = Math.floor(diff % 1000);
+        diff = diff / 1000;
+        var seconds = Math.floor(diff % 60);
+        diff = diff / 60;
+        var minutes = Math.floor(diff % 60);
+        diff = diff / 60;
+        var hours = Math.floor(diff % 24);
+        diff = diff / 24;
+        var days = Math.floor(diff);
+
+        var outStr = 'until next year ' + days + 'day, ' + hours + 'hours, ' + minutes;
+        outStr += 'minutes, ' + seconds + 'seconds' + ' left.';
+
+        document.getElementById('remaining').innerHTML = outStr;
+        // After 1 second, call the function again. 
+        setTimeout("datesUntilNewYear()", 1000);
+    }
+    // start the timer 
+    datesUntilNewYear();
+</script>
+<br>
+<hr>
+<br>
+<script>
+    var s = 'aBcDeF';
+    var result1 = s.toLowerCase();
+    var result2 = s.toUpperCase();
+    document.writeln(result1); // print: abcdef
+    document.writeln(result2); // print: ABCDEF
+</script>
+<br>
+<hr>
+<br>
+<script>
+    s = "One,Two,Three,Four,Five";
+    array = s.split(',');
+    for (i = 0; i < array.length; i++) {
+        document.writeln(i + '-' + array[i] + '<BR>');
+    }
+</script>
+<br>
+<hr>
+<br>
+<script>
+    var s = "This is a test.";
+    document.write("Big: " + s.big() + "<br>");
+    document.write("Small: " + s.small() + "<br>");
+    document.write("Bold: " + s.bold() + "<br>");
+    document.write("Italic: " + s.italics() + "<br>");
+    document.write("Fixed: " + s.fixed() + "<br>");
+    document.write("Strike: " + s.strike() + "<br>");
+    document.write("Fontcolor: " + s.fontcolor("green") + "<br>");
+    document.write("Fontsize: " + s.fontsize(6) + "<br>");
+    document.write("Subscript: " + s.sub() + "<br>");
+    document.write("Superscript: " + s.sup() + "<br>");
+    document.write("Link: " + s.link("http://www.google.com") + "<br>");
+</script>
+<br>
+<hr>
+<br>
+<script>
+    function calc(type) {
+        x = Number(document.calculator.number1.value);
+        if (type == 1)
+            y = Math.sin((x * Math.PI) / 180.0);
+        else if (type == 2)
+            y = Math.log(x);
+
+        else if (type == 3)
+            y = Math.sqrt(x);
+        else if (type == 4)
+            y = Math.abs(x);
+        document.calculator.total.value = y;
+    }
+</script>
+<form name="calculator">
+    insert:               <input type="text" name="number1"><br />
+    result:          <input type="text" name="total"><br />
+    <input type="button" value="SIN" onclick="calc(1);">
+    <input type="button" value="LOG" onclick="calc(2);">
+    <input type="button" value="SQRT" onclick="calc(3);">
+
+    <input type="button" value="ABS" onclick="calc(4);">
+</form>
+<br>
+<hr>
+<br>
+<script>
+    function printArray(a) {
+        document.write("[ ");
+        for (var i = 0; i < a.length; i++)
+            document.write(a[i] + " ");
+        document.write(" ] <br>");
+
+    }
+    var myArray1 = new Array();
+    myArray1[0] = "apple";
+    myArray1[1] = "banana";
+    myArray1[2] = "orange";
+
+    var myArray2 = new Array("apple", "banana", "orange");
+    var myArray3 = ["apple", "banana", "orange"];
+
+    printArray(myArray1);
+    printArray(myArray2);
+    printArray(myArray3);
+</script>
+<br>
+<hr>
+<br>
+<script>
+    var msg = "";
+    function test() {
+        try {
+            allert("Hello World!");
+        }
+        catch (error) {
+            msg = "error has occurred like below: " + error.message;
+            alert(msg);
+        }
+    }
+</script>
+<input type="button" value="try-catch experiment" onclick="test()" />
+<br>
+<hr>
+<br>
+<script>
+    var solution = 53;
+    function test1() {
+        try {
+            var x = document.getElementById("number").value;
+            if (x == "") throw "not inputted";
+            if (isNaN(x)) throw "not a number";
+            if (x > solution) throw "very big";
+            if (x < solution) throw "very small";
+            if (x == solution) throw "success";
+        }
+        catch (error) {
+            var y = document.getElementById("message");
+            y.innerHTML = "hint: " + error;
+        }
+    }
+    
+</script>
+<h1>Number Guess</h1>
+    <p> Enter a number between 1 and 100.</p>
+    <input id="number" type="text">
+    <button type="button" onclick="test1()">guess number</button>
+    <p id="message"></p>
+</body>
+
+</html>

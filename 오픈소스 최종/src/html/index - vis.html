@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modernize Free</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+
+
+<!-- code mirror -->
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.0/codemirror.min.js'></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.0/mode/xml/xml.min.js"></script>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.0/codemirror.min.css'>
+<link rel="stylesheet" href="https://codemirror.net/theme/monokai.css">
+
+<!-- <style>
+  video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+</style>
+<video autoplay muted loop>
+  <source src="../assets/images/background.mp4" type="video/mp4">
+</video> -->
+
+<!-- 비디오 백그라운드 제공 -->
+
+
+</head>
+<!-- 
+            <style>
+              /* 몸통 내부 DIV 컬러 */
+              .card.w-100 {
+                background-color: #ffffff; 
+                /* 원하는 색상으로 변경해주세요   */
+                /* background-image: url('../assets/images/back_blue.jpg'); */
+                background-size: cover; 
+                /* 이미지를 요소에 꽉 채우도록 설정 */
+                background-repeat: no-repeat; 
+              }
+
+              /* 왼쪽 네비게이션 바 컬러 */
+              .left-sidebar{
+                background-color: #ffffff;
+              }
+              
+              /* 페이지 몸토 컬러 */
+              .page-wrapper{
+                background-color: #dddddd;
+              }
+              
+              /* HEADER 상단 네비게이션 바 컬러 */
+              .app-header{
+                background-color: #fbfbfb;
+              }
+
+            </style> -->
+
+  <!--  Body Wrapper -->
+
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./index.html" class="text-nowrap logo-img">
+            <!-- 로고 이미지 가져오는 부분 -->
+            <!-- <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" /> -->
+            <!-- 원래 로고이미지 -->
+            <img src="../assets/images/logos/logo.jpg" width="180" alt="" />
+            <!-- 충북대학교 로고이미지 -->
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+
+        <!-- 좌측사이드바 메뉴 네비게이션 바 파트 -->
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+
+
+
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">배우고 싶은 기술 스택</span>
+            </li>
+
+            <style>
+              .sidebar-submenu {
+                display: none;
+              }
+
+              .sidebar-submenu.show {
+                display: block;
+              }
+
+              
+            </style>
+
+
+
+            <script>
+              function toggleSubMenu(subMenuId) {
+                var subMenu = document.getElementById(subMenuId);
+                subMenu.classList.toggle('show');
+              }
+              
+              function toggleHTMLSubMenu() {
+                toggleSubMenu('htmlSubMenu');
+              }
+              function toggleCSSSubMenu() {
+                toggleSubMenu('cssSubMenu');
+              }
+              function toggleJSSubMenu() {
+                toggleSubMenu('jsSubMenu');
+              }
+              function toggleJSSubMenu() {
+                toggleSubMenu('gameSubMenu');
+              }
+              function toggleJSSubMenu() {
+                toggleSubMenu('jqSubMenu');
+              }
+              function toggleJSSubMenu() {
+                toggleSubMenu('vsSubMenu');
+              }
+              function toggleJSSubMenu() {
+                toggleSubMenu('apiSubMenu');
+              }
+              
+            </script>
+
+
+<li class="sidebar-item">
+              
+  <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false" onclick="toggleSubMenu('htmlSubMenu')">
+    <span>
+      <i class="ti ti-layout-dashboard"></i>
+    </span>
+    <span style="" class="hide-menu">HTML</span>
+  </a>
+  <!-- ul태그 내부가 해당 href 하위 링크로 넘겨주는 태그 -->
+  
+  <ul id="htmlSubMenu" class="sidebar-submenu">
+    <li>
+
+      <!-- 이파트에서 링크를 전부 걸어주셔야 합니다. 각자 만드신 html파일로 링크를 걸어서 넘겨주세요 -->
+      <!-- ../assets/study/블라블라.html이나 이름적으면 고대로 넘어갈겁니다. -->
+
+      <a class="sidebar-link" href="./html_1 text.html">HTML-1</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="./html_2_list.html">HTML-2</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="./html_3_Link.html">HTML-3</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="./html_4_image.html">HTML-4</a>
+    </li>
+  </ul>
+</li>
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+
+
+<!-- CSS교육자료 파트  -->
+<!-- 하위메뉴 들어가기 위해서는 script 태그 필요함 -->
+
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+<li class="sidebar-item">
+  
+  <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false" onclick="toggleSubMenu('cssSubMenu')">
+    <span>
+      <i class="ti ti-article"></i>
+    </span>
+    <span class="hide-menu">CSS</span>
+  </a>
+  <!-- ul태그 내부가 해당 href 하위 링크로 넘겨주는 태그 -->
+  <ul id="cssSubMenu" class="sidebar-submenu">
+    <li>
+      <a class="sidebar-link" href="./CSS-1.html">CSS-1</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="./CSS-2.html">CSS-2</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="./CSS-3.html">CSS-3</a>
+    </li>
+  </ul>
+</li>
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+
+
+
+<!-- Js교육자료 파트  -->
+<!-- 하위메뉴 들어가기 위해서는 script 태그 필요함 -->
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+<li class="sidebar-item">
+  
+  <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false" onclick="toggleSubMenu('jsSubMenu')">
+    <span>
+      <i class="ti ti-alert-circle"></i>
+      <!-- 왼쪽 아이콘 넣는 파트 -->
+    </span>
+    <span class="hide-menu">JavaScript</span>
+  </a>
+  <!-- ul태그 내부가 해당 href 하위 링크로 넘겨주는 태그 -->
+  <ul id="jsSubMenu" class="sidebar-submenu">
+    <li>
+      <a class="sidebar-link" href="./index -JS-1.html">JS-1</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="./index - JS_2.html">JS-2</a>
+    </li>
+  </ul>
+</li>
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+
+
+            <!-- VS교육자료 파트  -->
+<!-- 하위메뉴 들어가기 위해서는 script 태그 필요함 -->
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+<li class="sidebar-item">
+  
+  <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false" onclick="toggleSubMenu('vsSubMenu')">
+    <span>
+      <i class="ti ti-cards"></i>
+      <!-- 왼쪽 아이콘 넣는 파트 -->
+    </span>
+    <span class="hide-menu">Visualization</span>
+  </a>
+  <!-- ul태그 내부가 해당 href 하위 링크로 넘겨주는 태그 -->
+  <ul id="vsSubMenu" class="sidebar-submenu">
+    <li>
+      <a class="sidebar-link" href="./index - about.html">VS-1</a>
+    </li>
+  </ul>
+</li>
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+
+
+<!-- JQ교육자료 파트  -->
+<!-- 하위메뉴 들어가기 위해서는 script 태그 필요함 -->
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+<li class="sidebar-item">
+  
+  <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false" onclick="toggleSubMenu('jqSubMenu')">
+    <span>
+      <i class="ti ti-file-description"></i>
+      <!-- 왼쪽 아이콘 넣는 파트 -->
+    </span>
+    <span class="hide-menu">Jquery</span>
+  </a>
+  <!-- ul태그 내부가 해당 href 하위 링크로 넘겨주는 태그 -->
+  <ul id="jqSubMenu" class="sidebar-submenu">
+    <li>
+      <a class="sidebar-link" href="./index - JQuery_1.html">JQ-1</a>
+    </li>
+  </ul>
+</li>
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+
+
+<!-- game교육자료 파트  -->
+<!-- 하위메뉴 들어가기 위해서는 script 태그 필요함 -->
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+<li class="sidebar-item">
+  
+  <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false" onclick="toggleSubMenu('apiSubMenu')">
+    <span>
+      <i class="ti ti-typography"></i>
+      <!-- 왼쪽 아이콘 넣는 파트 -->
+    </span>
+    <span class="hide-menu">API</span>
+  </a>
+  <!-- ul태그 내부가 해당 href 하위 링크로 넘겨주는 태그 -->
+  <ul id="apiSubMenu" class="sidebar-submenu">
+    <li>
+      <a class="sidebar-link" href="./map_api.html">API-1</a>
+    </li>
+    <li>
+      <a class="sidebar-link" href="./index - api_gpt.html">API-2</a>
+    </li>
+  </ul>
+</li>
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+
+<!-- game교육자료 파트  -->
+<!-- 하위메뉴 들어가기 위해서는 script 태그 필요함 -->
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+<li class="sidebar-item">
+  
+  <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false" onclick="toggleSubMenu('gameSubMenu')">
+    <span>
+      <i class="ti ti-mood-happy"></i>
+      <!-- 왼쪽 아이콘 넣는 파트 -->
+    </span>
+    <span class="hide-menu">Game</span>
+  </a>
+  <!-- ul태그 내부가 해당 href 하위 링크로 넘겨주는 태그 -->
+  <ul id="gameSubMenu" class="sidebar-submenu">
+    <li>
+      <a class="sidebar-link" href="./index - game.html">Game</a>
+    </li>
+  </ul>
+</li>
+<!-- 클릭 시 하위 메뉴 고르는 사이드바 메뉴항목 태그 파트 -->
+
+</nav>
+<!-- End Sidebar navigation -->
+</div>
+<!-- End Sidebar scroll-->
+</aside>
+<!--  Sidebar End -->
+
+
+
+<!--  Main wrapper -->
+<!-- 헤더네비게이션 바 파트 -->
+<div class="body-wrapper">
+<!--  Header Start -->
+
+<header class="app-header">
+<nav class="navbar navbar-expand-lg navbar-light">
+<ul class="navbar-nav">
+<li class="nav-item d-block d-xl-none">
+  <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+    <i class="ti ti-menu-2"></i>
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+    <i class="ti ti-bell-ringing"></i>
+
+                <!-- 헤더바 아이콘 나오는 파트 -->
+
+                <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+                <!-- 구글폰트 사용 -->
+                <h1 style="color: #FCA205; font-family:'Lobster';">Study Hard! Wep!</h1>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><h3 id="clock" style="color: #FCA205; font-family:'Lobster';"></h3><h3>---</h3>
+                
+                <script>
+                  function displayTime() {
+                    var date = new Date();
+                    var hours = String(date.getHours()).padStart(2, '0');
+                    var minutes = String(date.getMinutes()).padStart(2, '0');
+                    var seconds = String(date.getSeconds()).padStart(2, '0');
+              
+                    var time = hours + ":" + minutes + ":" + seconds;
+              
+                    document.getElementById("clock").textContent = time;
+                  }
+              
+                  // 1초마다 displayTime 함수를 실행하여 시간을 업데이트
+                  setInterval(displayTime, 1000);
+                </script>
+                  <!-- 시간을 나타내주는 함수 -->
+
+
+                <!-- <style>
+                  .progress-bar {
+                    width: 100px;
+                    height: 20px;
+                    background-color: #f0f0f0;
+                    border-radius: 10px;
+                    overflow: hidden;
+                  }
+
+                  .progress-bar-fill {
+                    height: 100%;
+                    background-color: #4caf50;
+                    transition: width 0.5s;
+                  }
+
+                </style>
+
+                <h4 id="time-spent">--Study time--<span id="elapsed-time">00:00:00</span></h4>
+                <div class="progress-bar">
+                  <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                </div> -->
+
+                <!-- <script>
+                  // 페이지가 로드된 시간 기록
+                  var startTime = Date.now();
+
+                  // 시간 업데이트 함수
+                  function updateTimeSpent() {
+                    var elapsedTime = Math.floor((Date.now() - startTime) / 1000); // 밀리초를 초로 변환
+                    var hours = Math.floor(elapsedTime / 3600);
+                    var minutes = Math.floor((elapsedTime % 3600) / 60);
+                    var seconds = elapsedTime % 60;
+
+                    // 2자리 숫자로 포맷팅
+                    var formattedTime = ("0" + hours).slice(-2) + ":" +
+                                        ("0" + minutes).slice(-2) + ":" +
+                                        ("0" + seconds).slice(-2);
+
+                    var elapsedTimeElement = document.getElementById("elapsed-time");
+                    var progressBarFill = document.getElementById("progress-bar-fill");
+
+                    elapsedTimeElement.textContent = formattedTime;
+
+                    // 게이지 바 업데이트
+                    if (hours >= 1) {
+                      progressBarFill.style.width = "100%"; // 3시간 이상인 경우 게이지 바를 100%로 설정
+                    } else {
+                      var percentage = (hours / 1) * 100;
+                      progressBarFill.style.width = percentage + "%"; // 3시간 미만인 경우 시간에 따라 비율에 맞게 게이지 바 조정
+                    }
+                  }
+
+                  // 1초마다 시간 업데이트
+                  setInterval(updateTimeSpent, 1000);
+                </script> -->
+<!-- 위에 코드는 canvas를 활용하지 않은 코드 -->
+
+                
+                
+
+
+
+                
+                <div class="notification bg-primary rounded-circle"></div>
+              </a>
+            </li>
+
+            
+
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <button type="button" class="btn btn-primary m-1">HOME</button>
+              <button type="button" class="btn btn-secondary m-1">              
+                <a href="./gpt.html" target="_blank" style="width:500px; height:300px;" onclick="window.open(this.href, this.target, 'width=500,height=300'); return false;">
+                Q&A
+              </a></button>
+              <button type="button" class="btn btn-success m-1"><a href ="./index - about.html">ABOUT</a></button>
+              <!-- canvas를 활용하여 타임체크 -->
+              <canvas id="timer-canvas" width="300" height="50"></canvas>
+
+                <script>
+                  var canvas = document.getElementById("timer-canvas");
+                  var ctx = canvas.getContext("2d");
+                  var startTime = Date.now();
+                
+                  function updateTimeSpent() {
+                    var elapsedTime = Math.floor((Date.now() - startTime) / 1000); // 밀리초를 초로 변환
+                    var hours = Math.floor(elapsedTime / 3600);
+                    var minutes = Math.floor((elapsedTime % 3600) / 60);
+                    var seconds = elapsedTime % 60;
+                
+                    // 2자리 숫자로 포맷팅
+                    var formattedTime = ("0" + hours).slice(-2) + ":" +
+                                        ("0" + minutes).slice(-2) + ":" +
+                                        ("0" + seconds).slice(-2);
+                
+                    // Canvas에 타이머 텍스트 그리기
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.font = "24px Arial";
+                    ctx.fillStyle = "#000000";
+                    ctx.fillText("Study Spent: " + formattedTime, 10, 30);
+                
+                    // Canvas에 진행 상태 그리기
+                    ctx.fillStyle = hours >= 1 ? "#00FF00" : "#FF0000";
+                    var gaugeWidth = hours >= 1 ? 300 : (hours * 3600 + minutes * 60 + seconds) / 10800 * 300;
+                    ctx.fillRect(10, 40, gaugeWidth, 10);
+                  }
+                
+                  // 1초마다 시간 업데이트
+                  setInterval(updateTimeSpent, 1000);
+                </script>
+                <!-- 여기까지 canvas를 활용한 게이지바 활용 -->
+
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+
+
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-user fs-6"></i>
+                      <p class="mb-0 fs-3">My Profile</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-mail fs-6"></i>
+                      <p class="mb-0 fs-3">My Account</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-list-check fs-6"></i>
+                      <p class="mb-0 fs-3">My Task</p>
+                    </a>
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        
+
+        <!--  Row 1 -->
+        <div class="row">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.css">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js"></script>
+          <div class="col-lg-6 d-flex align-items-strech">
+
+
+
+            <div class="card w-100">
+            <!--실제 공간을 구분짓는 div class는 card w 100 -->
+            
+              <div class="card-body">
+
+                <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                  <div class="mb-3 mb-sm-0">
+                    <h5 class="card-title fw-semibold">Code implement</h5>
+                    <h4 class="fw-semibold mb-3"> </h4>
+                    <h1>PIE Chart </h1>
+
+                  </div>
+
+                </div>
+                <!-- 왼쪽 긴박스 공간  -->
+
+                <div class="example">
+
+
+                </div>
+                
+                <div id="chart_pie" class="text-center"></div>
+                <script>
+                  // X축 데이터
+                  var xData = ['HTML', 'CSS', 'JAVA_SCRIPT', 'J-Query', 'GAME', 'API', 'VIsualization'];
+                  // Y축 데이터 (비율)
+                  var yData = [20, 15, 23, 3, 28, 2, 3];
+
+                  // 데이터 매핑
+                  var data = xData.map(function (value, index) {
+                    return [value, yData[index]];
+                  });
+
+
+
+
+
+
+                  // C3.js 차트 생성
+                  var chart = c3.generate({
+                    // 그래프를 표시할 요소를 지정합니다.
+                    bindto: '#chart_pie',
+                    // 데이터 설정
+                    data: {
+                      // 그래프 유형을 파이 차트로 지정합니다.
+                      type: 'pie',
+                      // 그래프 데이터
+                      columns: data,
+                      // 그래프 내에 데이터 레이블 표시
+                      labels: true
+                    },
+                    // 그래프 크기 설정
+                    size: {
+                      width: 300,
+                      height: 300
+                    }
+                  });
+
+
+
+                </script>
+
+              <!-- 여기까지가 왼쪽 상단 네모 파트 -->
+
+              </div>
+            </div>
+            
+          </div>
+
+
+          <div class="col-lg-6 d-flex align-items-strech">
+
+            <!-- <style>
+              .card.w-100 {
+                background-color: #c4f2ff; /* 원하는 색상으로 변경해주세요 */
+              }
+            </style> -->
+            <div class="card w-100">
+              <!--실제 공간을 구분짓는 div class는 card w 100 -->
+              
+                <div class="card-body">
+                  <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                    <div class="mb-3 mb-sm-0">
+                      <h5 class="card-title fw-semibold">Code Explain</h5>
+                      <h4 class="fw-semibold mb-3"> </h4>
+                      <h1>C3 라이브러리</h1>
+  
+                    </div>
+  
+                  </div>
+                  <!--  긴박스 공간  -->
+                  <div class="example">
+  
+                    
+                    <h3>C3 Elements</h3>
+                    <br><h3>· C3를 사용하기 위한 기본 세팅을 결정한다.</h3><br>
+                    <h3>· X축과 Y축 설정 값을 통해 PIE차트를 만드는 법을 배워보자.</h3>
+                    <br>  
+                    <hr>
+                    <!-- 수평구분선으로 설명과 구분짓기 -->
+                    <xmp style =" font-size: 16px; font-weight: bold; color: #010101;">
+                      
+  1. x축 데이터 var xData = ['HTML', 'CSS', 'JAVA_SCRIPT', 
+              'J-Query', 'GAME', 'API', 'VIsualization'];
+
+  2. y축 데이터 var yData = [20, 15, 23, 3, 28, 2, 3];
+
+  3. 데이터 매핑   var data = xData.map(function (value, index) { 
+                   return [value, yData[index]]; });
+
+
+
+                    </xmp>
+                  </div>
+                <!-- 여기까지가 왼쪽 상단 네모 파트 -->
+                </div>
+              </div>
+
+        </div>
+
+
+
+
+          
+          
+        </div>
+        <div class="py-6 px-6 text-center">
+          <p class="mb-0 fs-4"> Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">충북대학교 오픈소스 소프트웨어 WC</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("h2").click(function () {
+            $(this).hide();
+        });
+
+        var i = 0;
+        $("div.out").mouseover(function () {
+            $("p:first", this).text("mouse over");
+            $("p:last", this).text(++i);
+        });
+
+        $(document).mousemove(function (e) {
+            $("#log").text("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY);
+        });
+
+        $("input").focus(function () {
+            $(this).css("background-color", "yellow");
+        });
+
+        $("input").blur(function () {
+            $(this).css("background-color", "white");
+        });
+
+        $("button#showButton").click(function () {
+            $("#dog").show("slow");
+        });
+
+        $("button#animateButton").click(function () {
+            $("#dog1").animate({ left: '100px' });
+        });
+
+        $("button#showButton1").click(function () {
+            $("#dog2").show().fadeOut("slow").slideDown("slow");
+        });
+
+        $("#text").click(function () {
+            alert($("#target").text());
+        });
+
+        $("#html").click(function () {
+            alert($("#target").html());
+        });
+
+        $("button#showButton3").click(function () {
+            alert($("#target1").val());
+        });
+
+        $("button#show1").click(function () {
+            alert($("#dog3").attr("src"));
+        });
+
+        $("button#s1").click(function () {
+            $("p#s").append("<b style='color:red'>Hello! </b>.");
+        });
+
+        $("button#s2").click(function () {
+            $("p#s").prepend("<b style='color:red'>Hello! </b>.");
+        });
+
+        $("button#a").click(function () {
+            $(".container").remove();
+        });
+
+        $("button#b").click(function () {
+            $(".container").empty();
+        });
+
+    });
+</script>
+<style>
+    div.out {
+        width: 200px;
+        height: 60px;
+        background-color: yellow;
+    }
+
+    .p1 {
+        background-color: yellow;
+    }
+
+    .container {
+        height: 80px;
+        width: 200px;
+        border: 1px dotted red;
+    }
+    div.a {
+            width: 70px;
+            height: 50px;
+            float: left;
+            margin: 5px;
+            background: rgba(255, 0, 0, 0.925);
+        }
+        div.a.next {
+    background: blue !important;
+}
+</style>
+</head>
+<body>
+<h2>will come alive when clicked.</h2>
+<br>
+<hr>
+<br>
+<div class="out">
+    <p> Move your mouse here.</p>
+    <p>0</p>
+</div>
+<br>
+<hr>
+<br>
+<div id="log"></div>
+<br>
+<hr>
+<br>
+ID:<input type="text" name="name"><br>
+<br>
+<hr>
+<br>
+<button id="showButton">Show it</button>
+<img id="dog" src="dog.png" alt="" width="120" height="100" style="display: none" />
+<br>
+<hr>
+<br>
+<button id="animateButton">animate()</button>
+<img id="dog1" src="dog.png" alt="" width="120" height="100" style="position: relative" /><br />
+<br>
+<hr>
+<br>
+<button id="showButton1">start method chaining</button>
+<img id="dog2" src="dog.png" alt="" width="120" height="100" style="display: none" />
+<br>
+<hr>
+<br>
+<p id="target">this is <strong>one</strong> paragraph.</p>
+<button id="text">text()</button>
+<button id="html">html()</button>
+<br>
+<hr>
+<br>
+name: <input type="text" id="target1" value="">
+<button id="showButton3">val()</button>
+<br>
+<hr>
+<br>
+<img id="dog3" src="dog.png" alt="" width="120" height="100" /><br />
+<button id="show1">attr()</button>
+<br>
+<hr>
+<br>
+<p id="s">I would like to say: </p>
+<button id="s1">append()</button>
+<button id="s2">prepend()</button>
+<br>
+<hr>
+<br>
+<button id="a">remove()</button>
+<button id="b">empty()</button><br />
+<div class="container">
+    <p class="p1">Hello</p>
+    <p class="p1">Goodbye</p>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<div class="a">1</div>
+<div class="a">2</div>
+<div class="a">3</div>
+<div class="a">4</div>
+<div class="a">5</div>
+<script>
+$(document).ready(function () {
+    var modWidth = 50;
+    $("div.a").click(function () {
+        $(this).width(modWidth).addClass("next");
+        modWidth -= 8;
+    });
+});
+</script>
+</body>
+</html>

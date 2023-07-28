@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modernize Free</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <style>
+    /* 비디오 백그라운드 제공 */
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* 페이지 래퍼 스타일 */
+    .page-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 회원가입 카드 스타일 */
+    .card {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* 로고 이미지 스타일 */
+    .logo-img {
+      text-align: center;
+    }
+
+    /* 폼 스타일 */
+    form {
+      margin-top: 20px;
+    }
+
+    /* 폼 레이블 스타일 */
+    .form-label {
+      font-weight: bold;
+    }
+
+    /* 폼 컨트롤 스타일 */
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    /* 버튼 스타일 */
+    .btn {
+      display: inline-block;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border: 1px solid transparent;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: 0.25rem;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    }
+
+    /* 추가적인 스타일 */
+    .text-center {
+      text-align: center;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .align-items-center {
+      align-items: center;
+    }
+
+    .justify-content-center {
+      justify-content: center;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    .col-md-8 {
+      flex: 0 0 66.666667%;
+      max-width: 66.666667%;
+    }
+
+    .col-lg-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    /* 자세한 내용은 부트스트랩 문서 참조: https://getbootstrap.com/docs/5.0/getting-started/introduction/ */
+  </style>
+</head>
+
+<body>
+  <video autoplay muted loop>
+    <source src="../assets/images/background.mp4" type="video/mp4">
+  </video>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center w-100">
+      <div class="row justify-content-center w-100">
+        <div class="col-md-8 col-lg-6 col-xxl-3">
+          <div class="card mb-0">
+            <div class="card-body">
+              <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                <img src="../assets/images/logos/logo.jpg" width="180" alt="">
+              </a>
+              <p class="text-center">지금 당장 공부하세요!</p>
+              <form>
+                <div class="mb-3">
+                  <label for="exampleInputtext1" class="form-label">이름</label>
+                  <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-4">
+                  <label for="exampleInputPassword1" class="form-label">비밀번호</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputDate1" class="form-label">생년월일</label>
+                  <input type="date" class="form-control" id="exampleInputDate1">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">성별</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                    <label class="form-check-label" for="male">남자</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                    <label class="form-check-label" for="female">여자</label>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">학과</label>
+                  <select class="form-control">
+                    <option value="SW">SW</option>
+                    <option value="WP">WP</option>
+                  </select>
+                </div>
+
+                <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">회원가입</a>
+                <div class="d-flex align-items-center justify-content-center">
+                  <p class="fs-4 mb-0 fw-bold">이미 아이디를 가지고 계신가요?</p>
+                  <a class="text-primary fw-bold ms-2" href="./authentication-login.html">로그인</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

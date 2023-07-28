@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title> My First Javascript </title>
+    <script>
+        function showDialog() {
+            alert("Hello");
+        }
+    </script>
+        <script>
+            function greeting(name, position) {
+                alert(name + " " + position + "welcome.");
+            }
+        </script>
+            <script>
+                function calc() {
+        
+                    var x = document.getElementById("x").value;
+        
+                    var y = document.getElementById("y").value;
+                    var sum;
+        
+                    sum = parseInt(x) + parseInt(y);
+                    document.getElementById("sum").value = sum;
+                }
+            </script>
+</head>
+<body>
+
+    <script>
+        var now = new Date();
+        document.write("<br>");
+        document.write(now);
+        document.write("<br><br><hr><br>");
+        document.write("Hello World!");
+        document.write("<br><br><hr><br>");
+        
+
+    </script>
+<button type="button" onclick="alert('welcome.')">click button!</button>
+<br>
+<br>
+<hr>
+<br>
+<script>
+    var s;
+
+    s = 100;
+    document.write(s + "<br>");
+
+    s = "Hong";
+    document.write(s + "<br>");
+</script>
+<br>
+<hr>
+<br>
+<script>
+    var s = "Hello World";
+    var t = "How are you" + " today?";
+
+    document.write(s + "<br>");
+    document.write(t + "<br>");
+    document.write(s.toUpperCase() + "<br>");
+</script>
+<br>
+<hr>
+<br>
+<button onclick="showDialog()">open dialog box</button>
+<br>
+<hr>
+<br>
+<button onclick="greeting('Hong', 'manager')">click!</button>
+<br>
+<hr>
+<br>
+<h1 id="test">This is a heading.</h1>
+<script>
+    function func() {
+        var e;
+        e = document.getElementById("test");
+        e.style.color = "red";
+    }
+</script>
+<button type="button" onclick="func()">click!</button>
+<br>
+<hr>
+<br>
+<h3>addition calculator</h3>
+<form name="myform" action="..." method="POST">
+    first integer:        
+    <input id="x" /><br />
+    second integer:        
+    <input id="y" /><br />
+    total:         
+    <input id="sum" /><br />
+    <input type="button" value="calculate" onclick="calc();" />
+</form>
+<br>
+<hr>
+<br>
+<script>
+    var i = 0;
+    while (i < 10) {
+        document.write("counter : " + i + "<br />");
+        i++;
+    }
+</script>
+<br>
+<hr>
+<br>
+<script>
+
+
+    document.write("<h1>tactics table</h1>");
+    document.write("<table border=2 width=50%");
+
+    for (var i = 1; i <= 9; i++) {  
+        document.write("<tr>");
+        document.write("<td>" + i + "</td>");
+
+        for (var j = 2; j <= 9; j++) { 
+            document.write("<td>" + i * j + "</td>");
+        }
+
+        document.write("</tr>");
+    }
+
+    document.write("</table>");
+
+</script>
+<br>
+<hr>
+<br>
+<script>
+    var i;
+    var fruits = new Array();
+    fruits[0] = "Apple";
+    fruits[1] = "Banana";
+    fruits[2] = "Orange";
+
+    for (i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + "<br>");
+    }
+</script>
+
+</body>
+</html>

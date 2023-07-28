@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modernize Free</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<style>
+  /* General Styles */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; 
+    /* 일반적인 스타일: 바디 요소에 여백을 없애고, 폰트 패밀리를 Arial로 설정 */
+  }
+
+  /* Page Wrapper Styles */
+  .page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* 페이지 래퍼 스타일: 요소를 가운데로 정렬하는 flex 컨테이너로 설정, 
+    세로 방향으로 전체 뷰포트 높이를 가짐 */
+  }
+
+  /* Card Styles */
+  .card {
+    width: 100%;
+    max-width: 360px;
+    background-color: #fff;
+    border-radius: 5px;
+    /* 카드 스타일: 가로 폭을 100%로 설정, 
+    최대 가로 폭을 360px로 설정, 배경색을 흰색으로 설정, 모서리를 둥글게 설정 */
+  }
+
+  .card-body {
+    padding: 20px;
+    /* 카드 본문 스타일: 내부 여백을 20px로 설정 */
+  }
+
+  /* Logo Styles */
+  .logo-img {
+    display: block;
+    text-align: center;
+    padding: 15px 0;
+    /* 로고 스타일: 요소를 블록 레벨로 설정하여 중앙 정렬, 상단과 하단에 15px의 여백 설정 */
+  }
+
+  .logo-img img {
+    width: 180px;
+    /* 로고 이미지 스타일: 이미지의 가로 폭을 180px로 설정 */
+  }
+
+  /* Form Styles */
+  .form-label {
+    font-weight: bold;
+    /* 폼 레이블 스타일: 글자를 굵게 설정 */
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    /* 폼 컨트롤 스타일: 가로 폭을 100%로 설정, 
+    내부 여백을 10px로 설정, 하단 여백을 15px로 설정, 
+    테두리를 회색으로 설정, 모서리의 경계를 둥글게 설정 */
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #0069d9;
+    /* 버튼 스타일: 블록 레벨 요소로 설정하여 가로 폭에 맞게 표시, 
+    가로 폭을 100%로 설정, 내부 여백을 12px로 설정, 
+    글자 크기를 16px로 설정, 글자를 굵게 설정, 가운데 정렬, 
+    배경색을 파란색으로 설정, 글자 색상을 흰색으로 설정, 
+    테두리 없음, 모서리의 경계를 둥글게 설정, 텍스트에 밑줄 없음 */
+  }
+
+  /* Additional Styles */
+  .text-center {
+    text-align: center;
+    /* 추가적인 스타일: 텍스트 가운데 정렬 */
+  }
+
+  .d-flex {
+    display: flex;
+    /* 추가적인 스타일: flex 속성을 사용하여 요소를 플렉스 컨테이너로 설정 */
+  }
+
+  .align-items-center {
+    align-items: center;
+    /* 추가적인 스타일: 요소를 수직 방향으로 가운데 정렬 */
+  }
+
+  .justify-content-between {
+    justify-content: space-between;
+    /* 추가적인 스타일: 요소를 수평 방향으로 동일한 간격으로 정렬 */
+  }
+
+  .form-check-label {
+    color: #000;
+    /* 추가적인 스타일: 폼 체크 레이블의 글자 색상을 검은색으로 설정 */
+  }
+
+  .fw-bold {
+    font-weight: bold;
+    /* 추가적인 스타일: 글자를 굵게 설정 */
+  }
+
+  .ms-2 {
+    margin-left: 0.5rem;
+    /* 추가적인 스타일: 왼쪽 여백을 0.5rem으로 설정 */
+  }
+
+  video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    /* 비디오 스타일: 고정 위치로 설정하여 페이지의 맨 위에 배치, 
+    상단과 좌측을 0으로 설정하여 전체 화면으로 표시, 가로 폭과 세로 높이를 100%로 설정, 
+    객체를 컨테이너에 맞게 조절, z-index 값을 -1로 설정하여 배경 뒤로 이동 */
+  }
+</style>
+
+
+<body>
+
+  <video autoplay muted loop>
+    <source src="../assets/images/background.mp4" type="video/mp4">
+</video>
+
+
+  <div class="page-wrapper">
+    <div class="card">
+      <div class="card-body">
+        <a href="./index.html" class="text-nowrap logo-img">
+          <img src="../assets/images/logos/logo.jpg" width="180" alt="">
+        </a>
+
+        <p class="text-center">지금 당장 공부하세요!</p>
+        <form>
+          <div>
+            <label for="exampleInputEmail1" class="form-label">ID</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div>
+            <label for="exampleInputPassword1" class="form-label">비밀번호</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="form-check">
+              <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
+              <label class="form-check-label text-dark" for="flexCheckChecked">
+               다음 접속시 로그인 유지
+              </label>
+            </div>
+            <a class="text-primary fw-bold" href="./index.html">Forgot Password?</a>
+          </div>
+          <a href="./index - ow.html" class="btn btn-primary">로그인</a>
+          <!-- 버튼은 부트스트랩 컴포넌트를 가져왔습니다 -->
+          <div class="d-flex align-items-center justify-content-center">
+
+            <a class="text-primary fw-bold ms-2" href="./authentication-register copy.html">회원가입</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

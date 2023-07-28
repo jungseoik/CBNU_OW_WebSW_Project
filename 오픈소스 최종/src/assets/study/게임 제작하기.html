@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>장애물 피하기 게임</title>
+    <style>
+        #player {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+
+        .obstacle {
+            position: absolute;
+            top: -50px;
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>장애물 피하기 게임</h1>
+    <p>좌우 방향키로 조작할 수 있습니다. 장애물에 부딪히면 스코어가 초기화 됩니다.</p>
+    <h2>Score: <span id="score">0</span></h2>
+    
+    <div id="player"></div>
+
+    <script>
+        // 변수
+        var player = document.getElementById("player");
+        var scoreElement = document.getElementById("score");
+        var score = 0;
+        var isGameOver = false;
+        var hasCollided = false; // 충돌 상태 변수
+
+        // 플레이어 이동 함수
+        function movePlayer(event) {
+            if (!isGameOver) {
+                var keyPressed = event.keyCode;
+                var leftPosition = parseInt(window.getComputedStyle(player).getPropertyValue("left"));
+
+                if (keyPressed === 37 && leftPosition > 0) { // 좌 방향키
+                    player.style.left = (leftPosition - 10) + "px";
+                }
+
+                if (keyPressed === 39 && leftPosition < window.innerWidth - 50) { // 우 방향키
+                    player.style.left = (leftPosition + 10) + "px";
+                }
+            }
+        }
+
+        // 장애물 생성 및 이동 함수
+        function createObstacle() {
+            if (!isGameOver) {
+                var obstacle = document.createElement("div");
+                obstacle.classList.add("obstacle");
+                obstacle.style.left = Math.floor(Math.random() * (window.innerWidth - 50)) + "px";
+                document.body.appendChild(obstacle);
+
+                var obstacleInterval = setInterval(function() {
+                    var obstacleTop = parseInt(window.getComputedStyle(obstacle).getPropertyValue("top"));
+                    var playerLeft = parseInt(window.getComputedStyle(player).getPropertyValue("left"));
+                    var playerBottom = parseInt(window.getComputedStyle(player).getPropertyValue("bottom"));
+
+                    if (
+                        obstacleTop > window.innerHeight - 50 && 
+                        obstacleTop < window.innerHeight && 
+                        playerLeft + 50 > obstacle.offsetLeft && 
+                        playerLeft < obstacle.offsetLeft + 50 &&
+                        playerBottom >= 0
+                    ) {
+                        if (!hasCollided) {
+                            hasCollided = true;
+                            gameOver();
+                        }
+                    }
+
+                    obstacle.style.top = (obstacleTop + 10) + "px";
+
+                    if (obstacleTop > window.innerHeight) {
+                        score++;
+                        scoreElement.textContent = score;
+                        obstacle.remove();
+                        clearInterval(obstacleInterval);
+                    }
+                }, 20);
+
+                setTimeout(createObstacle, 2000);
+            }
+        }
+
+        // 게임 종료 함수
+        function gameOver() {
+            isGameOver = true;
+            alert("Game Over! Your score: " + score);
+            location.reload();
+        }
+
+        // 플레이어 이동을 위한 이벤트 리스너
+        document.addEventListener("keydown", movePlayer);
+
+        // 게임 시작
+        createObstacle();
+    </script>
+</body>
